@@ -1,0 +1,14 @@
+Deco3D - Tienda de Decoración en 3D
+
+Este proyecto es una plataforma de exhibición y contacto para una tienda de artículos impresos en 3D. 
+
+
+Tecnologías Implementadas
+HTML5 : Uso de etiquetas estructurales para SEO y accesibilidad.
+CSS3 Avanzado
+Flexbox: Organización de la galería de productos en tarjetas adaptables.
+CSS Grid: Maquetación de la sección de reseñas de clientes.
+Diseño Responsivo: Uso de Media Queries para optimizar la vista en celulares.
+Fuentes: Integración de Montserrat y Roboto mediante Google Fonts.
+Interactividad: Efectos hover y transiciones en tarjetas y botones.
+Funcionalidad: Formulario de contacto integrado con "Formspree".

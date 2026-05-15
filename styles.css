@@ -1,0 +1,169 @@
+/* Reset y Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* Fondo degradado [15] */
+    color: #352f2f;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Header y Navbar */
+.header {
+    background-color: #314a63;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #3e5975;
+    position: sticky; /* Posicionamiento sticky [16] */
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem;
+}
+
+.navbar__list a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar__list a:hover {
+    color: #3498db;
+}
+
+/* Flexbox para Productos [17] */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 4rem 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s; /* Transición suave [18] */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Efecto hover [18] */
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.price {
+    display: block;
+    font-size: 1.5rem;
+    color: #27ae60;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* CSS Grid para Reseñas [19] */
+.reviews {
+    background-color: rgba(255,255,255,0.5);
+    padding: 4rem 2rem;
+}
+
+.reviews__title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.reviews__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en desktop [20] */
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.review-item {
+    background: #fff;
+    padding: 1.5rem;
+    border-left: 5px solid #3498db;
+    font-style: italic;
+    border-radius: 5px;
+}
+
+/* Formulario y Media Queries [21] */
+.contact-section {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 1.5rem;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn-submit {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Responsividad para móviles [14, 22] */
+@media (max-width: 768px) {
+    .reviews__container {
+        grid-template-columns: 1fr; /* Una sola columna en móviles [22] */
+    }
+    
+    .navbar__list {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card {
+        width: 100%; /* Tarjetas ocupan todo el ancho en móviles */
+    }
+}
+
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
