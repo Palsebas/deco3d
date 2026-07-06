@@ -3,103 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deco3D - Innovación en tu Hogar</title>
-    <!-- Google Fonts: Roboto para párrafos y Montserrat para títulos -->
+    <meta name="description" content="Deco3D - Tienda de artículos de decoración impresos en 3D con diseños únicos.">
+    <title>Deco3D | Innovación y Estilo</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
     <!-- Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap para diseño responsivo ágil -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header class="header">
-        <div class="header__logo">
-            <i class="fas fa-cube fa-2x"></i>
-            <h1>Deco3D</h1>
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="header__logo">
+                <i class="fas fa-cube fa-2x"></i>
+                <h1>Deco3D</h1>
+            </div>
+            <div class="cart-status">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="contador-carrito">0</span>
+            </div>
         </div>
     </header>
 
-    <nav class="navbar">
-        <ul class="navbar__list">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+    <nav class="navbar sticky-top">
+        <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-link text-white" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#productos">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <main>
-        <!-- Sección Inicio con Multimedia -->
-        <section id="inicio" class="hero">
-            <h2>Arte impreso en tres dimensiones</h2>
-            <p>Transformamos filamento en piezas únicas para tu espacio </p>
-            <div class="hero__video">
-                <!-- Iframe o Video local según preferencia [7, 8] -->
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <main class="container my-5">
+        <!-- Sección Hero con Multimedia -->
+        <section id="inicio" class="hero text-center p-5 mb-5 rounded shadow">
+            <h2>Arte en Tres Dimensiones</h2>
+            <p>Piezas de decoración exclusivas obtenidas mediante impresión 3D de alta precisión.</p>
+            <div class="hero__media mt-4">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen title="Proceso de Impresión 3D"></iframe>
             </div>
         </section>
 
-        <!-- Sección Productos con Flexbox -->
-        <section id="productos" class="product-grid">
-            <article class="card">
-                <img src="https://placehold.co/100" alt="Lámpara Geométrica 3D">
-                <h3>Lámpara Geométrica</h3>
-                <p>Diseño paramétrico con luz LED integrada.</p>
-                <span class="price">$4500</span>
-                <button class="btn">Comprar <i class="fas fa-shopping-cart"></i></button>
-            </article>
-            <article class="card">
-                <img src="https://placehold.co/200" alt="Maceta Minimalista">
-                <h3>Maceta Minimalista</h3>
-                <p>Perfecta para suculentas, biodegradable.</p>
-                <span class="price">$12000</span>
-                <button class="btn">Comprar <i class="fas fa-shopping-cart"></i></button>
-            </article>
-            <article class="card">
-                <img src="https://placehold.co/300" alt="Soporte Auriculares">
-                <h3>Soporte Tech</h3>
-                <p>Organiza tu setup con estilo futurista.</p>
-                <span class="price">$2800</span>
-                <button class="btn">Comprar <i class="fas fa-shopping-cart"></i></button>
-            </article>
-        </section>
-
-        <!-- Sección Reseñas con CSS Grid -->
-        <section class="reviews">
-            <h2 class="reviews__title">Lo que dicen nuestros clientes</h2>
-            <div class="reviews__container">
-                <div class="review-item">"La calidad de impresión es asombrosa, no se notan las capas." - Julieta R.</div>
-                <div class="review-item">"Excelente atención y el envío fue súper rápido." - Marcos G.</div>
-                <div class="review-item">"Piezas de diseño que no encontrás en ningún otro lado." - Sofía L.</div>
+        <!-- Sección Productos: Renderizados dinámicamente con JS (Flexbox) -->
+        <section id="productos" class="mb-5">
+            <h2 class="text-center mb-4">Nuestro Catálogo Dinámico</h2>
+            <div id="productos-container" class="row g-4">
+                <!-- Las cards se insertarán aquí mediante fetch() -->
             </div>
         </section>
 
-        <!-- Formulario de Contacto con Formspree -->
-        <section id="contacto" class="contact-section">
-            <h2>¿Tenés un diseño personalizado?</h2>
-            <!-- Reemplazar el ID de Formspree por el local [9, 10] -->
-            <form action="https://formspree.io/f/tu_id_aqui" method="POST" class="contact-form">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="name" required placeholder="Tu nombre">
-                
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
-                
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="message" rows="5" required placeholder="Contanos tu idea..."></textarea>
-                
-                <button type="submit" class="btn-submit">Enviar Pedido</button>
+        <!-- Sección Reseñas: Organizada con CSS Grid -->
+        <section id="reseñas" class="reseñas-section mb-5">
+            <h2 class="text-center mb-4">Lo que dicen nuestros clientes</h2>
+            <div class="reseñas-grid">
+                <article class="reseña-card">
+                    <p>"La precisión de las piezas de Deco3D es increíble. Mi lámpara geométrica es el centro de atención."</p>
+                    <span>- Marina S.</span>
+                </article>
+                <article class="reseña-card">
+                    <p>"Excelente atención y el envío llegó en perfectas condiciones. Muy recomendado."</p>
+                    <span>- Roberto J.</span>
+                </article>
+                <article class="reseña-card">
+                    <p>"Diseños modernos que no encuentras en tiendas convencionales. ¡Me encanta!"</p>
+                    <span>- Elena P.</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- Carrito de Compras Dinámico -->
+        <section id="carrito" class="p-4 border rounded bg-white shadow-sm mb-5">
+            <h3>Tu Carrito</h3>
+            <div id="lista-carrito" class="mb-3">
+                <!-- Items del carrito -->
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <h4>Total: $<span id="total-precio">0</span></h4>
+                <button id="vaciar-carrito" class="btn btn-outline-danger">Vaciar Carrito</button>
+            </div>
+        </section>
+
+        <!-- Formulario de Contacto: Formspree -->
+        <section id="contacto" class="my-5">
+            <h2 class="text-center">Consultas Personalizadas</h2>
+            <form action="https://formspree.io/f/tu_id_aqui" method="POST" class="mx-auto shadow p-4 rounded bg-light" style="max-width: 600px;">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" name="name" id="nombre" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" name="email" id="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="mensaje" class="form-label">Tu idea en 3D:</label>
+                    <textarea name="message" id="mensaje" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
             </form>
         </section>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2026 Deco3D Artículos Impresos. Todos los derechos reservados [1].</p>
-        <div class="footer__social">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
+    <footer class="footer text-center p-4">
+        <p>&copy; 2024 Deco3D Artículos Impresos. Todos los derechos reservados.</p>
+        <div class="footer__social mt-2">
+            <i class="fab fa-instagram mx-2"></i>
+            <i class="fab fa-facebook mx-2"></i>
         </div>
     </footer>
 
+    <!-- Script de lógica e-commerce -->
+    <script src="script.js"></script>
 </body>
 </html>
-</html>
+2. Estilos Actualizados (styles.css)
+Este archivo implementa Flexbox para productos, Grid para reseñas y las Media Queries necesarias para la adaptabilidad
+.
+/* Variables y Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Header con Gradiente */
+.header {
+    background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+    color: white;
+    padding: 1.5rem 0;
+}
+
+.navbar {
+    background-color: #34495e;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #ffffff;
+    border-left: 10px solid #3498db;
+}
+
+/* Flexbox para Productos (manejado vía Bootstrap 'row' pero estilizado aquí) */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+    padding: 1rem;
+}
+
+/* CSS Grid para Reseñas */
+.reseñas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
+    gap: 20px;
+}
+
+.reseña-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 4px solid #3498db;
+    font-style: italic;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 992px) {
+    .reseñas-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .reseñas-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+    }
+    
+    #contacto form {
+        padding: 1.5rem;
+    }
+}
+
+.footer {
+    background-color: #2c3e50;
+    color: white;
+}
+3. Nuevo Archivo de Lógica (script.js)
+Debes crear este archivo para manejar la interactividad, el consumo de la Fetch API y el carrito persistente
+.
+const productosContainer = document.getElementById('productos-container');
+const listaCarrito = document.getElementById('lista-carrito');
+const contadorCarrito = document.getElementById('contador-carrito');
+const totalPrecio = document.getElementById('total-precio');
+const btnVaciar = document.getElementById('vaciar-carrito');
+
+// Inicializar carrito desde localStorage
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+// 1. Consumir API REST (Simulando catálogo con FakeStoreAPI)
+async function obtenerProductos() {
+    try {
+        const respuesta = await fetch('https://fakestoreapi.com/products?limit=9');
+        if (!respuesta.ok) throw new Error("Error al conectar con la API");
+        const datos = await respuesta.json();
+        renderizarProductos(datos);
+    } catch (error) {
+        productosContainer.innerHTML = `<p class="text-danger text-center">Hubo un problema cargando el catálogo: ${error.message}</p>`;
+    }
+}
+
+// 2. Renderizar tarjetas de productos (DOM)
+function renderizarProductos(productos) {
+    productosContainer.innerHTML = '';
+    productos.forEach(prod => {
+        const col = document.createElement('div');
+        col.className = 'col-12 col-md-6 col-lg-4';
+        col.innerHTML = `
+            <div class="card h-100 shadow-sm">
+                <img src="${prod.image}" class="card-img-top" alt="${prod.title}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">${prod.title.substring(0, 30)}...</h5>
+                    <p class="card-text text-success fw-bold">$${prod.price}</p>
+                    <button class="btn btn-primary mt-auto" onclick="agregarAlCarrito(${prod.id}, '${prod.title}', ${prod.price})">
+                        <i class="fas fa-cart-plus"></i> Añadir
+                    </button>
+                </div>
+            </div>
+        `;
+        productosContainer.appendChild(col);
+    });
+}
+
+// 3. Lógica del Carrito con LocalStorage
+function agregarAlCarrito(id, nombre, precio) {
+    const existe = carrito.find(item => item.id === id);
+    if (existe) {
+        existe.cantidad++;
+    } else {
+        carrito.push({ id, nombre, precio, cantidad: 1 });
+    }
+    actualizarCarrito();
+}
+
+function eliminarDelCarrito(id) {
+    carrito = carrito.filter(item => item.id !== id);
+    actualizarCarrito();
+}
+
+function actualizarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    mostrarCarritoUI();
+}
+
+function mostrarCarritoUI() {
+    listaCarrito.innerHTML = '';
+    let total = 0;
+    let sumaCantidades = 0;
+
+    carrito.forEach(item => {
+        total += item.precio * item.cantidad;
+        sumaCantidades += item.cantidad;
+        
+        const div = document.createElement('div');
+        div.className = 'd-flex justify-content-between align-items-center border-bottom py-2';
+        div.innerHTML = `
+            <span>${item.nombre.substring(0, 20)}... (x${item.cantidad})</span>
+            <div>
+                <span class="me-3">$${(item.precio * item.cantidad).toFixed(2)}</span>
+                <button class="btn btn-sm btn-danger" onclick="eliminarDelCarrito(${item.id})">&times;</button>
+            </div>
+        `;
+        listaCarrito.appendChild(div);
+    });
+
+    totalPrecio.innerText = total.toFixed(2);
+    contadorCarrito.innerText = sumaCantidades;
+}
+
+btnVaciar.addEventListener('click', () => {
+    carrito = [];
+    actualizarCarrito();
+});
+
+// Ejecución inicial
+obtenerProductos();
+mostrarCarritoUI();
